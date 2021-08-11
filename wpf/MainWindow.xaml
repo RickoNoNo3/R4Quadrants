@@ -1,0 +1,71 @@
+﻿<mah:MetroWindow x:Class="R4Quadrant.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:R4Quadrant"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    mc:Ignorable="d" Loaded="Window_Loaded" Title="MainWindow" Height="350" Width="350" MinHeight="250" MinWidth="250"
+    ResizeMode="CanResize" ShowTitleBar="False" ShowMaxRestoreButton="False" ShowCloseButton="True" BorderThickness="0"
+    WindowTransitionsEnabled="False">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <!--标题栏-->
+    <StackPanel Orientation="Horizontal">
+      <mah:ToggleSwitch x:Name="TopToggle" Width="85" Margin="5,0" IsTabStop="False" ToolTip="切换置顶"
+          Toggled="TopToggle_Toggled" VerticalAlignment="Center">
+        <mah:ToggleSwitch.OnContent>
+          <icon:Codicons Kind="Pinned" />
+        </mah:ToggleSwitch.OnContent>
+        <mah:ToggleSwitch.OffContent>
+          <icon:Codicons Kind="Pin" />
+        </mah:ToggleSwitch.OffContent>
+      </mah:ToggleSwitch>
+    </StackPanel>
+    <!--四象限-->
+    <Grid Grid.Row="1" x:Name="Quas">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*" />
+        <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
+      <local:QuadrantBox x:Name="QB0" Grid.Row="0" Grid.Column="0" BackgroundColor="{StaticResource BoxColor0}"
+          Title="紧急不重要" />
+      <local:QuadrantBox x:Name="QB1" Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource BoxColor1}"
+          Title="紧急重要" />
+      <local:QuadrantBox x:Name="QB2" Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource BoxColor2}"
+          Title="不重要不紧急" />
+      <local:QuadrantBox x:Name="QB3" Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource BoxColor3}"
+          Title="重要不紧急" />
+    </Grid>
+    <!--四象限中心的添加按钮-->
+    <Grid Grid.Row="1" x:Name="AddBtnsLayer">
+      <Border x:Name="AddBtns" Width="17" Height="17" MouseEnter="AddBtns_MouseEnter" MouseLeave="AddBtns_MouseLeave">
+        <Border.Effect>
+          <DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="0" Opacity="0.5" />
+        </Border.Effect>
+        <Border.Background>
+          <SolidColorBrush Color="White" Opacity="0.4" />
+        </Border.Background>
+        <!--这里才是真正的功能按钮, 上面是白框-->
+        <Grid x:Name="AddBtnsContent" Visibility="Hidden">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+          </Grid.RowDefinitions>
+          <local:TaskAddBtn Grid.Row="0" Grid.Column="0" QBIndex="0" />
+          <local:TaskAddBtn Grid.Row="0" Grid.Column="1" QBIndex="1" />
+          <local:TaskAddBtn Grid.Row="1" Grid.Column="0" QBIndex="2" />
+          <local:TaskAddBtn Grid.Row="1" Grid.Column="1" QBIndex="3" />
+        </Grid>
+      </Border>
+    </Grid>
+  </Grid>
+</mah:MetroWindow>

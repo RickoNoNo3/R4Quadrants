@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\rick\Programs\0.net\R4Quadrant\Properties\PublishProfiles\publish文件夹.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="QuadrantBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskAddBtn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="QuadrantBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Color_Brush.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskAddBtn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

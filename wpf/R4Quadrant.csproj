@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>R4Quadrant.App</StartupObject>
+    <SignAssembly>false</SignAssembly>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>RickoNoNo3</Authors>
+    <Description>一款轻量级四象限任务管理器</Description>
+    <Company>RickoNoNo3</Company>
+    <Copyright>Copyright © 2020 RickoNoNo3(R崽哗啦啦)</Copyright>
+    <Version>0.1.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Quadrant\**" />
+    <EmbeddedResource Remove="Quadrant\**" />
+    <None Remove="Quadrant\**" />
+    <Page Remove="Quadrant\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.2.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.6.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>

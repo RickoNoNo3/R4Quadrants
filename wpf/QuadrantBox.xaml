@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="R4Quadrant.QuadrantBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:R4Quadrant"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" mc:Ignorable="d" Loaded="UserControl_Loaded"
+    d:DesignHeight="150" d:DesignWidth="150">
+  <UserControl.Background>
+    <SolidColorBrush Color="{Binding BackgroundColor}" />
+  </UserControl.Background>
+  <ItemsControl Grid.Row="1" x:Name="DataList" IsTabStop="False" DragOver="DataList_DragOver"
+      GiveFeedback="DataList_GiveFeedback" Drop="DataList_Drop" AllowDrop="True"
+      PreviewMouseDoubleClick="DataList_MouseDoubleClick">
+    <ItemsControl.Template>
+      <ControlTemplate>
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="2">
+          <ItemsPresenter />
+        </ScrollViewer>
+      </ControlTemplate>
+    </ItemsControl.Template>
+  </ItemsControl>
+</UserControl>

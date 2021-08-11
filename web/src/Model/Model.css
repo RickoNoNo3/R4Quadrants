@@ -1,0 +1,187 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.Model {
+	animation: fadeIn 50ms ease-in;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	z-index: 3;
+}
+
+.Model .Model-bg {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000080;
+}
+
+.Model .Model-win {
+	min-width: 30vw;
+	max-width: 96vw;
+	margin: 10vmin 0;
+	height: max-content;
+	background-color: black;
+	color: #DDD;
+	text-align: left;
+	z-index: 4;
+}
+
+.Model .Model-win .Model-header {
+	display: flex;
+	height: 50px;
+	align-items: stretch;
+	color: white;
+	background-color: #484C44;
+}
+
+.Model .Model-win .Model-header p {
+	flex: auto;
+	display: flex;
+	align-items: center;
+	margin-left: 18px;
+	font-size: 18px;
+	white-space: nowrap;
+	word-break: keep-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.Model .Model-win .Model-header .Model-header-closeBtn {
+	flex: none;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	margin-right: 4px;
+	cursor: pointer;
+}
+
+.Model .Model-win .Model-content {
+	padding: 20px;
+	background-color: #203024;
+	height: max-content;
+}
+
+.Model .Model-win .Model-content p {
+	margin: 5px 0 10px;
+}
+
+.Model .Model-win .Model-content label {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.Model .Model-win .Model-content label.NoMargin {
+	margin: 0;
+}
+
+.Model .Model-win .Model-content label > span {
+	flex: none;
+}
+
+.Model .Model-win .Model-content input,
+.Model .Model-win .Model-content textarea {
+	flex: 1;
+	outline: none;
+	box-sizing: border-box;
+	border: none;
+	padding: 4px 2px;
+	width: 1px;
+	color: white;
+	font-size: 16px;
+	font-family: inherit;
+	background-color: #FFFFFF20;
+}
+
+.Model .Model-win .Model-content textarea {
+	resize: none;
+	width: 40vw;
+	height: 80px;
+}
+
+.Model .Model-win .Model-content input[type=radio] {
+	display: none;
+}
+
+.Model .Model-win .Model-content input[type=radio] + span {
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
+}
+
+.Model .Model-win .Model-content input[type=radio]:checked + span {
+	color: white;
+	background-color: #FFFFFF20;
+}
+
+.Model .Model-win .Model-content .CategorySelector {
+	flex: 1;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.Model .Model-win .Model-content .CategorySelector input[type=radio] + span {
+	width: calc(100% - 20px);
+	height: calc(100% - 10px);
+}
+
+.Model .Model-win .Model-content .CategorySelector input[type=radio] + span > span {
+	flex: none;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	margin-right: 5px;
+	filter: brightness(1.5);
+}
+
+.Model .Model-win .Model-content .ModelBtnBar {
+	text-align: right;
+	margin: 20px 0 0 0;
+}
+
+.Model .Model-win .Model-content .ModelBtnBar .ModelBtn {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 9px 27px;
+	font-size: 16px;
+	color: white;
+	background-color: #484C44;
+	cursor: pointer;
+}
+
+.Model .Model-win .Model-content .ModelBtnBar .ModelBtn.Main {
+	color: black;
+	background-color: #AAAA44;
+}
+
+.Model .Model-win .Model-content .ModelBtnBar .ModelBtn.Warning {
+	color: white;
+	background-color: #774444;
+}
+
+.Model .Model-win .Model-content .ModelBtnBar .ModelBtn:hover {
+	filter: brightness(1.1);
+}
+
+.Model .Model-win .Model-content .ModelBtnBar .ModelBtn:active {
+	outline: none;
+	filter: brightness(0.9);
+}
+
+@media all and (max-height: 500px) {
+	.Model {
+		align-items: flex-start;
+	}
+}

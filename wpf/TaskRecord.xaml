@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="R4Quadrant.TaskRecord" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:local="clr-namespace:R4Quadrant" mc:Ignorable="d"
+    Loaded="UserControl_Loaded" d:DesignHeight="50" d:DesignWidth="130">
+  <UserControl.Resources>
+    <SolidColorBrush x:Key="TaskBackground" Color="Black" Opacity="0.3" />
+    <SolidColorBrush x:Key="TaskForeground" Color="WhiteSmoke" />
+    <Style x:Key="CenterIcon" TargetType="icon:PackIconBoxIcons">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+  </UserControl.Resources>
+  <Grid Margin="1.5,1.5" Background="{StaticResource TaskBackground}" x:Name="TopGrid" MouseEnter="TopGrid_MouseEnter"
+      MouseLeave="TopGrid_MouseLeave">
+    <Grid.Effect>
+      <DropShadowEffect BlurRadius="5" ShadowDepth="0" Direction="0" Opacity="0.2" />
+    </Grid.Effect>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition />
+      <ColumnDefinition Width="Auto" MaxWidth="30" />
+    </Grid.ColumnDefinitions>
+    <!--左侧黑线-->
+    <Border Grid.Column="0" Cursor="SizeAll" Padding="5, 2" ToolTip="移动此任务"
+        MouseLeftButtonDown="Border_MouseLeftButtonDown">
+      <Border.Background>
+        <SolidColorBrush Color="Black" Opacity="0.2" />
+        <!--<SolidColorBrush Color="{Binding SignColor}" Opacity="0.8"/>-->
+      </Border.Background>
+      <icon:PackIconBoxIcons Kind="RegularMenu" Width="12" Style="{StaticResource CenterIcon}" Foreground="LightGray" />
+    </Border>
+    <!--中间文字内容-->
+    <Border Grid.Column="1" Padding="4,4,4,4">
+      <Grid>
+        <!--展示框, 由于复杂鼠标事件的缘故套了一层ContentControl-->
+        <ContentControl x:Name="DisplayControl" IsTabStop="False" MouseDoubleClick="DisplayControl_MouseDoubleClick">
+          <TextBlock x:Name="Text" FontSize="13" Height="16"
+              Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding Title}"
+              Foreground="{StaticResource TaskForeground}" />
+        </ContentControl>
+        <!--输入框-->
+        <TextBox x:Name="TextEdit" Visibility="Hidden" IsTabStop="False" AcceptsTab="True" FontSize="13"
+            Foreground="{StaticResource TaskForeground}" BorderThickness="0" Height="16" Padding="0" Margin="-2,0,-2,0"
+            LostFocus="TextEdit_LostFocus" KeyDown="TextEdit_KeyDown">
+          <TextBox.Background>
+            <SolidColorBrush Color="White" Opacity="0.2" />
+          </TextBox.Background>
+          <TextBox.Style>
+            <Style />
+            <!--清除Metro默认样式-->
+          </TextBox.Style>
+        </TextBox>
+      </Grid>
+    </Border>
+    <!--右侧按钮-->
+    <DockPanel x:Name="BtnDock" Grid.Column="2" Width="0" Visibility="Hidden">
+      <Button x:Name="DeleteTaskBtn" ToolTip="完成此任务" IsTabStop="False"
+          Style="{DynamicResource MahApps.Styles.Button.Chromeless}" Click="DeleteTaskBtn_Click">
+        <icon:PackIconBoxIcons Kind="RegularTrash" Foreground="{StaticResource TaskForeground}" Height="15"
+            Style="{StaticResource CenterIcon}" />
+      </Button>
+    </DockPanel>
+  </Grid>
+</UserControl>

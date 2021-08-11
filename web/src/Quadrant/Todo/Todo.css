@@ -1,0 +1,72 @@
+.Todo {
+    display: inline-flex;
+    align-items: center;
+    width: calc(50% - 1.6vmin);
+    margin: 0.8vmin;
+    color: #DDD;
+    background-color: #00000040;
+}
+
+.Todo.Dragging {
+    position: fixed;
+    z-index: 2;
+}
+
+.Todo .Todo-handle {
+    flex: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    padding: 3px;
+    background-color: #00000040;
+    cursor: move;
+}
+
+.Todo .Todo-handle > div:last-child {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.Todo .Todo-handle i {
+    transform: scale(0.75, 1);
+}
+
+.Todo .Todo-text {
+    flex: auto;
+    margin: 0 5px;
+    text-align: left;
+}
+
+.Todo .Todo-btns {
+    flex: none;
+    display: none;
+}
+
+.Todo:hover .Todo-btns,
+.Todo:active .Todo-btns {
+    display: block;
+}
+
+.Todo .Todo-btns .Todo-btn {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    opacity: 0.7;
+    transition: opacity 50ms ease-in-out;
+    cursor: default;
+}
+
+.Todo .Todo-btns .Todo-btn:hover {
+    opacity: 1;
+}
+
+@media all and (max-width: 1000px) {
+    .Todo {
+        width: calc(100% - 1.6vmin);
+    }
+}

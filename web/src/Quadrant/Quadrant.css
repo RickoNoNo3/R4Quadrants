@@ -1,0 +1,18 @@
+.QuadrantGroup {
+	flex: auto;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	overflow: hidden;
+	padding: 1vmin;
+}
+
+.Quadrant {
+	position: relative;
+	box-sizing: border-box;
+	margin: 1vmin;
+	overflow: auto;
+	text-align: left;
+}
+.Quadrant > div {
+	padding: 0.8vmin;
+}
